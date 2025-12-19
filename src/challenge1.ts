@@ -1,21 +1,21 @@
-// Bikin type dari objek Book
+// Bikin type dulu 
 interface Book {
     title: string;
     author: string;
     year: number;
 }
 
-// Bikin array kosong dulu, untuk menampung data books
+// Lalu bikin array kosong, untuk menampung data books
 const books: Book[] = [];
 
-// Function untuk menambahkan data books
+// Bikin addBook, lengkap sama parameter dan return void
 function addBook(title: string, author: string, year: number): void {
     // Pakai push untuk menambahkan data books
     books.push({ title, author, year });
     console.log(`Book added: "${title}" by ${author} (${year})`);
 }
 
-// Function untuk menampilkan data books
+// Bikin listBooks, lengkap sama return void
 function listBooks(): void {
     console.log('All Books:');
 
@@ -25,23 +25,25 @@ function listBooks(): void {
     });
 }
 
-// Function untuk mencari data books
+// Bikin searchBook, parameter title? dan return void
 function searchBook(title?: string): void {
-    // Cek dulu input title bener nggak
+    // Cek dulu input, kalau nggak ada title, tampilkan pesan
     if (!title) {
         console.log('Please provide a title to search.');
         return;
     }
     
-    // Cari data books yang sesuai dengan title, lalu disimpan sebagai results
+    // Cari data books yang sesuai dengan title pakai filter
+    // lalu disimpan sebagai results
     const results = books.filter((book) => book.title.includes(title));
     
-    // Cek results ada isinya nggak / ada buku dengan title yang dicari nggak
+    // Cek results, kalau nggak ada results, tampilkan pesan
     if (results.length === 0) {
         console.log(`No books found with title containing "${title}".`);
         return;
     }
     
+    // Kalau ada results, tampilkan pesan
     console.log(`Search Results for "${title}":`);
 
     // Pakai foreach untuk menampilkan data books hasil pencarian
